@@ -7,7 +7,7 @@ function Favorites() {
         <div>
             {contacts.map(e=>{
                 if(e.isFav === true)
-                return ( <ContactCard name={e.name} mobileNo={e.mobileNo} isFav= {e.isFav} id = {e.id}/>)
+                return ( <ContactCard name={e.name} mobile={e.mobile} isFav= {e.isFav} id = {e.id}/>)
             })}
         </div>
     )

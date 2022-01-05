@@ -6,7 +6,7 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useSelector,useDispatch } from 'react-redux';
-import { changeEmail,changeName, changeMob, new_contact } from '../actions';
+import { changeEmail,changeName, changeMobile, new_contact } from '../actions';
 
 const style = {
   position: 'absolute',
@@ -47,14 +47,16 @@ export default function BasicModal() {
         <h2>New Contact</h2>
       <TextField id="outlined-basic" label="Name" variant="outlined" value={data.name} onChange={e=>dispatch(changeName(e.target.value))} />
       <br/>
-      
-      <TextField id="outlined-basic" label="Mobile No" variant="outlined" value={data.mobile} onChange={e=>dispatch(changeMob(e.target.value))}/>
       <br/>
+      <TextField id="outlined-basic" label="Mobile No" variant="outlined" value={data.mobile} onChange={e=>dispatch(changeMobile(e.target.value))}/>
+      <br/><br/>
       <TextField id="outlined-basic" label="Email ID" variant="outlined" value={data.email} onChange={e=>dispatch(changeEmail(e.target.value))}/>
-       <br/>
+       <br/><br/>
        <Button variant="contained"
-                 onClick={()=>{dispatch(new_contact(data))
-                    handleClose()}
+                 onClick={()=>{
+                   dispatch(new_contact(data))
+                    handleClose()
+                  }
                 }
                  
        >Save</Button>

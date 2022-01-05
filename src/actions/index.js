@@ -17,7 +17,7 @@ export function changeName(name){
     }
 }
 
-export function changeMob(mobile){
+export function changeMobile(mobile){
     return{
         type:"CHANGE_MOB",
         payload: mobile
@@ -27,6 +27,13 @@ export function changeEmail(email){
     return{
         type:"CHANGE_EMAIL",
         payload: email
+    }
+}
+export function addRecent(id)
+{
+    return{
+        type:"ADD_RECENT",
+        payload:id
     }
 }
 

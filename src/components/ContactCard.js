@@ -3,13 +3,13 @@ import Rating from '@mui/material/Rating';
 
 import Avatar from '@mui/material/Avatar';
 import CallIcon from '@mui/icons-material/Call';
-import { toggle_fav } from '../actions';
+import { toggle_fav, addRecent } from '../actions';
 import { useDispatch } from 'react-redux';
 
 const styles ={
     container:{
         display: 'flex',
-    height:' 50px',
+    height:' 60px',
     padding: '8px',
     margin:"5px 0px 5px 0px",    
     alignItems:'center'
@@ -19,11 +19,12 @@ const styles ={
     infoContainer:{
                 flex:'1',
               paddingLeft:"8px",
-              paddingRight:"8px"
+              paddingRight:"8px",
+              lineHeight:"1.1"
     },
     mobile:{
         fontSize:"12px",
-        color:"gray"
+        color:"#777"
     },
     callicon:{
         marginLeft:"8px"
@@ -66,19 +67,26 @@ function ContactCard(props) {
             <div ><Avatar {...stringAvatar(props.name)} /></div>
             <div style={styles.infoContainer}>{props.name}
                  <br/>
-                 <span style={styles.mobile}>{props.mobileNo}</span>
+                 <span style={styles.mobile}>{props.mobile}</span>
+               
             </div>
-            <div> <Rating
+            <div> 
+              <Rating
         name="simple-controlled"
         value={props.isFav}
         max={1}
-        onChange={(event, newValue) => {
+        onChange={() => {
         //   setValue(event );
         dispatch(toggle_fav(props.id))        
         }}
       />
       </div>
-            <div style={styles.callicon}><CallIcon ></CallIcon></div>
+            <div style={styles.callicon}><CallIcon 
+            onClick={()=>{
+              
+              dispatch(addRecent(props.id))
+            }}
+            ></CallIcon></div>
            
         </div>
     )

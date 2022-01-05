@@ -8,7 +8,7 @@ function AllContacts() {
         <div>
             {
                 contacts.map(e=>{
-                    return ( <ContactCard name={e.name} mobileNo={e.mobileNo} isFav= {e.isFav} id = {e.id}/>)
+                    return ( <ContactCard name={e.name} mobile={e.mobile} isFav= {e.isFav} id = {e.id}/>)
                 })
             }
           
