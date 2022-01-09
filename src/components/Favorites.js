@@ -5,14 +5,14 @@ function Favorites() {
     const contacts = useSelector(state => state.allContacts)
     return (
         <div>
-            {contacts.map(e=>(
-                <li>
+            {contacts.map(e=>{
+                
                     if(e.isFav === true)
                       return ( <ContactCard name={e.name} mobile={e.mobile} isFav= {e.isFav} id = {e.id}/>)
-                </li>
+                
                
                
-            ))}
+            })}
         </div>
     )
 }
